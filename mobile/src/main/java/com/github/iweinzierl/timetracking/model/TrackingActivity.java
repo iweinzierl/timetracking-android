@@ -4,7 +4,6 @@ import com.orm.SugarRecord;
 import com.orm.dsl.Column;
 import com.orm.dsl.Table;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,6 +32,15 @@ public class TrackingActivity extends SugarRecord {
     }
 
     public TrackingActivity(String uid, Date begin, Date end, String description, String bucket) {
+        this.uid = uid;
+        this.begin = begin;
+        this.end = end;
+        this.description = description;
+        this.bucket = bucket;
+    }
+
+    public TrackingActivity(String uuid, String uid, Date begin, Date end, String description, String bucket) {
+        this.uuid = uuid;
         this.uid = uid;
         this.begin = begin;
         this.end = end;
@@ -89,33 +97,17 @@ public class TrackingActivity extends SugarRecord {
     }
 
     public static List<TrackingActivity> listUnsynchedActivities() {
-        TrackingActivity a = new TrackingActivity();
-        a.setBegin(new Date());
-        a.setEnd(new Date());
-        a.setDescription("Desc A");
-
-        TrackingActivity b = new TrackingActivity();
-        b.setBegin(new Date());
-        b.setEnd(new Date());
-        b.setDescription("Desc B");
-
-        List<TrackingActivity> res = new ArrayList<>();
-        res.add(a);
-        res.add(b);
-        return res;
-
-        /*
-        return new Select()
-                .from(TrackingActivity.class)
-                .where("uuid = null")
-                .execute();
-                */
+        return TrackingActivity.find(
+                TrackingActivity.class,
+                "uuid is null",
+                null
+        );
     }
 
     public static long getNumberOfUnsynchedActivities() {
         return TrackingActivity.count(
                 TrackingActivity.class,
-                "uuid = null",
+                "uuid is null",
                 null);
     }
 }

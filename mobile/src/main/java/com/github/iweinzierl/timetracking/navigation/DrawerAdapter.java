@@ -11,6 +11,7 @@ import com.github.iweinzierl.android.utils.UiUtils;
 import com.github.iweinzierl.android.utils.widget.BaseListAdapter;
 import com.github.iweinzierl.timetracking.CheckInOutActivity_;
 import com.github.iweinzierl.timetracking.R;
+import com.github.iweinzierl.timetracking.UnsynchedTrackingActivity_;
 import com.google.common.collect.Lists;
 
 public class DrawerAdapter extends BaseListAdapter implements AdapterView.OnItemClickListener {
@@ -32,7 +33,7 @@ public class DrawerAdapter extends BaseListAdapter implements AdapterView.OnItem
     public DrawerAdapter(Context context) {
         super(context, Lists.newArrayList(
                 new DrawerItem(CheckInOutActivity_.class, R.string.drawer_checkinout, 0),
-                new DrawerItem(CheckInOutActivity_.class, R.string.drawer_unsynchronized_activities, 0)
+                new DrawerItem(UnsynchedTrackingActivity_.class, R.string.drawer_unsynchronized_activities, 0)
         ));
     }
 

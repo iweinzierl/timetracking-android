@@ -26,6 +26,7 @@ public class TrackingActivityListAdapter extends BaseListAdapter<TrackingActivit
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         TrackingActivity item = (TrackingActivity) getItem(position);
+
         View view = inflater.inflate(R.layout.listitem_tracking_activity, parent, false);
 
         UiUtils.setSafeText(view, R.id.begin, DATE_FORMAT.format(item.getBegin()));

@@ -96,6 +96,7 @@ public class TrackingApp extends SugarApp implements DataApi.DataListener {
 
         try {
             new TrackingActivity(
+                    UUID.randomUUID().toString(),
                     uid.toString(),
                     dateFormatter.parse("2016-08-01T08:00:00+0200"),
                     dateFormatter.parse("2016-08-01T08:15:00+0200"),
@@ -104,6 +105,7 @@ public class TrackingApp extends SugarApp implements DataApi.DataListener {
             ).save();
 
             new TrackingActivity(
+                    UUID.randomUUID().toString(),
                     uid.toString(),
                     dateFormatter.parse("2016-08-01T08:15:00+0200"),
                     dateFormatter.parse("2016-08-01T08:35:00+0200"),

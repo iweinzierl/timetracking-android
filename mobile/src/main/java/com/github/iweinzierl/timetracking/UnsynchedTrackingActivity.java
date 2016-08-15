@@ -32,8 +32,7 @@ public class UnsynchedTrackingActivity extends DrawerActivity {
 
     @Background
     protected void updateUI() {
-        updateUnsynchedActivities(
-                TrackingActivity.listUnsynchedActivities());
+        updateUnsynchedActivities(TrackingActivity.listUnsynchedActivities());
     }
 
     @UiThread
