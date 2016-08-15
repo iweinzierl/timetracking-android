@@ -19,6 +19,14 @@ public class CheckInOut extends SugarRecord implements Comparable {
 
     private Type type;
 
+    public CheckInOut() {
+    }
+
+    public CheckInOut(Date dateTime, Type type) {
+        this.dateTime = dateTime;
+        this.type = type;
+    }
+
     public Date getDateTime() {
         return dateTime;
     }

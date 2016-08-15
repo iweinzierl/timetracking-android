@@ -29,6 +29,17 @@ public class TrackingActivity extends SugarRecord {
     @Column(name = "bucket")
     public String bucket;
 
+    public TrackingActivity() {
+    }
+
+    public TrackingActivity(String uid, Date begin, Date end, String description, String bucket) {
+        this.uid = uid;
+        this.begin = begin;
+        this.end = end;
+        this.description = description;
+        this.bucket = bucket;
+    }
+
     public String getUuid() {
         return uuid;
     }
