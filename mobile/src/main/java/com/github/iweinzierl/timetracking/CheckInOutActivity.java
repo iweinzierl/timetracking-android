@@ -1,6 +1,5 @@
 package com.github.iweinzierl.timetracking;
 
-import android.app.Activity;
 import android.widget.ListView;
 
 import com.github.iweinzierl.timetracking.adapter.CheckInOutListAdapter;
@@ -13,11 +12,16 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
 
-@EActivity(R.layout.activity_checkinout)
-public class CheckInOutActivity extends Activity {
+@EActivity
+public class CheckInOutActivity extends DrawerActivity {
 
     @ViewById(R.id.checkinout_list)
     protected ListView checkInOutList;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_checkinout;
+    }
 
     @Override
     protected void onStart() {

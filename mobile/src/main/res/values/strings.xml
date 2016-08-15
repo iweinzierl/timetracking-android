@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">git.timetracking-android</string>
 
+    <string name="drawer_checkinout">Checkins/Checkouts</string>
+    <string name="drawer_unsynchronized_activities">Unsynchronisierte Aktivitäten</string>
+
     <string name="label_number_of_checkins">Anzahl Checkins</string>
     <string name="label_number_of_checkouts">Anzahl Checkouts</string>
     <string name="label_number_of_unsynched_activities">Anzahl unsynchronisierter Aktivitäten</string>

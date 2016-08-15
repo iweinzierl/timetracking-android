@@ -1,6 +1,5 @@
 package com.github.iweinzierl.timetracking;
 
-import android.app.Activity;
 import android.widget.TextView;
 
 import com.github.iweinzierl.timetracking.model.CheckInOut;
@@ -11,8 +10,8 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
-@EActivity(R.layout.activity_main)
-public class MainActivity extends Activity {
+@EActivity
+public class MainActivity extends DrawerActivity {
 
     @ViewById(R.id.number_of_checkins)
     protected TextView numberOfCheckinsView;
@@ -24,9 +23,13 @@ public class MainActivity extends Activity {
     protected TextView numberOfUnsynchedActivitiesView;
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
-
         updateUI();
     }
 

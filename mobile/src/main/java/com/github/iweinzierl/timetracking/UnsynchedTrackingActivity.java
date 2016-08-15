@@ -1,6 +1,5 @@
 package com.github.iweinzierl.timetracking;
 
-import android.app.Activity;
 import android.widget.ListView;
 
 import com.github.iweinzierl.timetracking.adapter.TrackingActivityListAdapter;
@@ -13,11 +12,16 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
 
-@EActivity(R.layout.activity_unsynched_tracking)
-public class UnsynchedTrackingActivity extends Activity {
+@EActivity
+public class UnsynchedTrackingActivity extends DrawerActivity {
 
     @ViewById(R.id.unsynched_tracking_list)
     protected ListView unsynchedTrackingList;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_unsynched_tracking;
+    }
 
     @Override
     protected void onStart() {
