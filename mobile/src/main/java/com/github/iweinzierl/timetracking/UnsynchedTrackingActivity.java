@@ -1,8 +1,10 @@
 package com.github.iweinzierl.timetracking;
 
-import android.widget.ListView;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
-import com.github.iweinzierl.timetracking.adapter.TrackingActivityListAdapter;
+import com.github.iweinzierl.timetracking.adapter.TrackingActivityCardAdapter;
 import com.github.iweinzierl.timetracking.model.TrackingActivity;
 
 import org.androidannotations.annotations.Background;
@@ -16,7 +18,15 @@ import java.util.List;
 public class UnsynchedTrackingActivity extends DrawerActivity {
 
     @ViewById(R.id.unsynched_tracking_list)
-    protected ListView unsynchedTrackingList;
+    protected RecyclerView unsynchedTrackingList;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        unsynchedTrackingList.setHasFixedSize(true);
+        unsynchedTrackingList.setLayoutManager(new LinearLayoutManager(this));
+    }
 
     @Override
     protected int getLayoutId() {
@@ -37,7 +47,7 @@ public class UnsynchedTrackingActivity extends DrawerActivity {
 
     @UiThread
     protected void updateUnsynchedActivities(List<TrackingActivity> activities) {
-        TrackingActivityListAdapter adapter = new TrackingActivityListAdapter(this, activities);
+        TrackingActivityCardAdapter adapter = new TrackingActivityCardAdapter(this, activities);
         unsynchedTrackingList.setAdapter(adapter);
     }
 }

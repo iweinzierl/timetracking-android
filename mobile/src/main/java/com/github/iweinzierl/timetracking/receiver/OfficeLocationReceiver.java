@@ -46,7 +46,7 @@ public class OfficeLocationReceiver extends BroadcastReceiver {
                 Log.w(TAG, "Failed to checkout");
             }
         } catch (ParseException e) {
-            Log.e(TAG, "Unable to parse dateTime from extras: " + intent.getStringExtra(EXTRA_DATETIME));
+            Log.e(TAG, "Unable to parseTechnical dateTime from extras: " + intent.getStringExtra(EXTRA_DATETIME));
         } catch (IllegalArgumentException e) {
             Log.e(TAG, "Illegal type argument from extras: " + intent.getStringExtra(EXTRA_TYPE));
         }

@@ -31,6 +31,11 @@ public class TrackingActivity extends SugarRecord {
     public TrackingActivity() {
     }
 
+    public TrackingActivity(String uid, Date begin) {
+        this.uid = uid;
+        this.begin = begin;
+    }
+
     public TrackingActivity(String uid, Date begin, Date end, String description, String bucket) {
         this.uid = uid;
         this.begin = begin;

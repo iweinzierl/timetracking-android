@@ -30,7 +30,7 @@ public class CheckInOutListAdapter extends BaseListAdapter<CheckInOut> {
 
         View view = inflater.inflate(R.layout.listitem_checkinout, parent, false);
 
-        UiUtils.setSafeText(view, R.id.datetime, dateFormatter.format(object.getDateTime()));
+        UiUtils.setSafeText(view, R.id.datetime, dateFormatter.formatHuman(object.getDateTime()));
         UiUtils.setSafeText(view, R.id.type, object.getType().name());
 
         return view;

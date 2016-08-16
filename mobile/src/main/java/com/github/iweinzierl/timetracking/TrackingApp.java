@@ -78,16 +78,16 @@ public class TrackingApp extends SugarApp implements DataApi.DataListener {
 
     private void insertTestCheckInsOuts() {
         try {
-            new CheckInOut(dateFormatter.parse("2016-08-01T08:00:00+0200"), CheckInOut.Type.CHECKIN).save();
-            new CheckInOut(dateFormatter.parse("2016-08-01T12:00:00+0200"), CheckInOut.Type.CHECKOUT).save();
-            new CheckInOut(dateFormatter.parse("2016-08-01T13:00:00+0200"), CheckInOut.Type.CHECKIN).save();
-            new CheckInOut(dateFormatter.parse("2016-08-01T18:30:00+0200"), CheckInOut.Type.CHECKOUT).save();
-            new CheckInOut(dateFormatter.parse("2016-08-02T07:45:00+0200"), CheckInOut.Type.CHECKIN).save();
-            new CheckInOut(dateFormatter.parse("2016-08-02T12:10:00+0200"), CheckInOut.Type.CHECKOUT).save();
-            new CheckInOut(dateFormatter.parse("2016-08-02T13:00:00+0200"), CheckInOut.Type.CHECKIN).save();
-            new CheckInOut(dateFormatter.parse("2016-08-02T17:45:00+0200"), CheckInOut.Type.CHECKOUT).save();
+            new CheckInOut(dateFormatter.parseTechnical("2016-08-01T08:00:00+0200"), CheckInOut.Type.CHECKIN).save();
+            new CheckInOut(dateFormatter.parseTechnical("2016-08-01T12:00:00+0200"), CheckInOut.Type.CHECKOUT).save();
+            new CheckInOut(dateFormatter.parseTechnical("2016-08-01T13:00:00+0200"), CheckInOut.Type.CHECKIN).save();
+            new CheckInOut(dateFormatter.parseTechnical("2016-08-01T18:30:00+0200"), CheckInOut.Type.CHECKOUT).save();
+            new CheckInOut(dateFormatter.parseTechnical("2016-08-02T07:45:00+0200"), CheckInOut.Type.CHECKIN).save();
+            new CheckInOut(dateFormatter.parseTechnical("2016-08-02T12:10:00+0200"), CheckInOut.Type.CHECKOUT).save();
+            new CheckInOut(dateFormatter.parseTechnical("2016-08-02T13:00:00+0200"), CheckInOut.Type.CHECKIN).save();
+            new CheckInOut(dateFormatter.parseTechnical("2016-08-02T17:45:00+0200"), CheckInOut.Type.CHECKOUT).save();
         } catch (ParseException e) {
-            Log.w(TAG, "Unable to parse date string", e);
+            Log.w(TAG, "Unable to parseTechnical date string", e);
         }
     }
 
@@ -98,8 +98,8 @@ public class TrackingApp extends SugarApp implements DataApi.DataListener {
             new TrackingActivity(
                     UUID.randomUUID().toString(),
                     uid.toString(),
-                    dateFormatter.parse("2016-08-01T08:00:00+0200"),
-                    dateFormatter.parse("2016-08-01T08:15:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T08:00:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T08:15:00+0200"),
                     "Diverse Mails",
                     "Mail"
             ).save();
@@ -107,45 +107,42 @@ public class TrackingApp extends SugarApp implements DataApi.DataListener {
             new TrackingActivity(
                     UUID.randomUUID().toString(),
                     uid.toString(),
-                    dateFormatter.parse("2016-08-01T08:15:00+0200"),
-                    dateFormatter.parse("2016-08-01T08:35:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T08:15:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T08:35:00+0200"),
                     "Daily Standup",
                     "Team"
             ).save();
 
             new TrackingActivity(
                     uid.toString(),
-                    dateFormatter.parse("2016-08-01T08:35:00+0200"),
-                    dateFormatter.parse("2016-08-01T08:45:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T08:35:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T08:45:00+0200"),
                     "1on1 with Mr. X",
                     "People"
             ).save();
 
             new TrackingActivity(
                     uid.toString(),
-                    dateFormatter.parse("2016-08-01T08:45:00+0200"),
-                    dateFormatter.parse("2016-08-01T09:15:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T08:45:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T09:15:00+0200"),
                     "Planning Meeting",
                     "Management"
             ).save();
 
             new TrackingActivity(
                     uid.toString(),
-                    dateFormatter.parse("2016-08-01T09:15:00+0200"),
-                    dateFormatter.parse("2016-08-01T10:00:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T09:15:00+0200"),
+                    dateFormatter.parseTechnical("2016-08-01T10:00:00+0200"),
                     "Discussion about further topics",
                     "Management"
             ).save();
 
             new TrackingActivity(
                     uid.toString(),
-                    dateFormatter.parse("2016-08-01T10:00:00+0200"),
-                    dateFormatter.parse("2016-08-01T11:00:00+0200"),
-                    "API Review",
-                    "TECH"
+                    dateFormatter.parseTechnical("2016-08-01T10:00:00+0200")
             ).save();
         } catch (ParseException e) {
-            Log.w(TAG, "Unable to parse date string", e);
+            Log.w(TAG, "Unable to parseTechnical date string", e);
         }
     }
 }
