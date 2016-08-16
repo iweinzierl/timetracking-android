@@ -4,9 +4,15 @@
     <string name="drawer_checkinout">Checkins/Checkouts</string>
     <string name="drawer_unsynchronized_activities">Unsynchronisierte Aktivitäten</string>
 
+    <string name="label_button_save">Speichern</string>
+
     <string name="label_number_of_checkins">Anzahl Checkins</string>
     <string name="label_number_of_checkouts">Anzahl Checkouts</string>
     <string name="label_number_of_unsynched_activities">Anzahl unsynchronisierter Aktivitäten</string>
-    <string name="label_uuid">UUID:</string>
-    <string name="label_uid">UID:</string>
+    <string name="label_activity_uuid">UUID</string>
+    <string name="label_activity_uid">UID</string>
+    <string name="label_activity_begin">Start</string>
+    <string name="label_activity_end">Ende</string>
+    <string name="label_activity_description">Beschreibung</string>
+    <string name="label_activity_bucket">Bucket</string>
 </resources>

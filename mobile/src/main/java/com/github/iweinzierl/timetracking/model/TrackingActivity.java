@@ -101,6 +101,18 @@ public class TrackingActivity extends SugarRecord {
         this.bucket = bucket;
     }
 
+    @Override
+    public String toString() {
+        return "TrackingActivity{" +
+                "uuid='" + uuid + '\'' +
+                ", uid='" + uid + '\'' +
+                ", begin=" + begin +
+                ", end=" + end +
+                ", description='" + description + '\'' +
+                ", bucket='" + bucket + '\'' +
+                '}';
+    }
+
     public static List<TrackingActivity> listUnsynchedActivities() {
         return TrackingActivity.find(
                 TrackingActivity.class,

@@ -63,7 +63,7 @@
                             android:layout_height="wrap_content"
                             android:paddingEnd="8dp"
                             android:paddingStart="0dp"
-                            android:text="@string/label_uuid" />
+                            android:text="@string/label_activity_uuid" />
 
                         <TextView
                             android:id="@+id/uuid"
@@ -78,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:paddingEnd="8dp"
                             android:paddingStart="0dp"
-                            android:text="@string/label_uid" />
+                            android:text="@string/label_activity_uid" />
 
                         <TextView
                             android:id="@+id/uid"

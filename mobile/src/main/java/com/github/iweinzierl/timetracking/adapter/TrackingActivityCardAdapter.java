@@ -1,6 +1,7 @@
 package com.github.iweinzierl.timetracking.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,12 @@ import java.util.List;
 
 public class TrackingActivityCardAdapter extends RecyclerView.Adapter<TrackingActivityCardAdapter.TrackingActivityViewHolder> {
 
+    public interface OnItemClickListener {
+        void onItemClick(TrackingActivity trackingActivity);
+    }
+
     static class TrackingActivityViewHolder extends RecyclerView.ViewHolder {
+        CardView cardView;
         TextView uuidView;
         TextView uidView;
         TextView beginView;
@@ -28,6 +34,7 @@ public class TrackingActivityCardAdapter extends RecyclerView.Adapter<TrackingAc
         TrackingActivityViewHolder(View itemView) {
             super(itemView);
 
+            cardView = UiUtils.getGeneric(CardView.class, itemView, R.id.card_view);
             uuidView = UiUtils.getGeneric(TextView.class, itemView, R.id.uuid);
             uidView = UiUtils.getGeneric(TextView.class, itemView, R.id.uid);
             beginView = UiUtils.getGeneric(TextView.class, itemView, R.id.begin);
@@ -41,6 +48,8 @@ public class TrackingActivityCardAdapter extends RecyclerView.Adapter<TrackingAc
     private final Context context;
     private final List<TrackingActivity> items;
     private final DateFormatter dateFormatter;
+
+    private OnItemClickListener onItemClickListener;
 
     public TrackingActivityCardAdapter(Context context, List<TrackingActivity> items) {
         this.context = context;
@@ -58,7 +67,7 @@ public class TrackingActivityCardAdapter extends RecyclerView.Adapter<TrackingAc
 
     @Override
     public void onBindViewHolder(TrackingActivityViewHolder holder, int position) {
-        TrackingActivity item = items.get(position);
+        final TrackingActivity item = items.get(position);
 
         holder.uuidView.setText(item.getUuid());
         holder.uidView.setText(item.getUid());
@@ -71,10 +80,23 @@ public class TrackingActivityCardAdapter extends RecyclerView.Adapter<TrackingAc
             holder.indicatorView.setBackgroundColor(context.getResources().getColor(
                     R.color.colorIndicatorError));
         }
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(item);
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }

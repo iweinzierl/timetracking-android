@@ -41,6 +41,8 @@
 
         <activity android:name=".CheckInOutActivity_" />
 
+        <activity android:name=".EditTrackingActivity_" />
+
         <receiver android:name=".receiver.OfficeLocationReceiver">
             <intent-filter>
                 <action android:name="com.github.iweinzierl.timetracking.OFFICE_EVENT" />
