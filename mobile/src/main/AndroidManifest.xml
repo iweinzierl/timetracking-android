@@ -33,7 +33,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".UnsynchedTrackingActivity_" />
+        <activity android:name=".UnsynchedTrackingActivity_">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".CheckInOutActivity_" />
 
         <receiver android:name=".receiver.OfficeLocationReceiver">

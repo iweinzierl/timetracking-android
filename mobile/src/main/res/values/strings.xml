@@ -7,4 +7,6 @@
     <string name="label_number_of_checkins">Anzahl Checkins</string>
     <string name="label_number_of_checkouts">Anzahl Checkouts</string>
     <string name="label_number_of_unsynched_activities">Anzahl unsynchronisierter Aktivitäten</string>
+    <string name="label_uuid">UUID:</string>
+    <string name="label_uid">UID:</string>
 </resources>

@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorWindowBackground">#898989</color>
+
+    <color name="colorIndicatorError">#CC2611</color>
 </resources>

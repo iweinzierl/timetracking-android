@@ -23,6 +23,7 @@ public class TrackingActivityCardAdapter extends RecyclerView.Adapter<TrackingAc
         TextView endView;
         TextView descriptionView;
         TextView bucketView;
+        View indicatorView;
 
         TrackingActivityViewHolder(View itemView) {
             super(itemView);
@@ -33,6 +34,7 @@ public class TrackingActivityCardAdapter extends RecyclerView.Adapter<TrackingAc
             endView = UiUtils.getGeneric(TextView.class, itemView, R.id.end);
             descriptionView = UiUtils.getGeneric(TextView.class, itemView, R.id.description);
             bucketView = UiUtils.getGeneric(TextView.class, itemView, R.id.bucket);
+            indicatorView = UiUtils.getGeneric(View.class, itemView, R.id.indicator);
         }
     }
 
@@ -64,6 +66,11 @@ public class TrackingActivityCardAdapter extends RecyclerView.Adapter<TrackingAc
         holder.endView.setText(dateFormatter.formatHuman(item.getEnd()));
         holder.descriptionView.setText(item.getDescription());
         holder.bucketView.setText(item.getBucket());
+
+        if (item.getEnd() == null || item.getDescription() == null || item.getBucket() == null) {
+            holder.indicatorView.setBackgroundColor(context.getResources().getColor(
+                    R.color.colorIndicatorError));
+        }
     }
 
     @Override
